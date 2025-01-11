@@ -1,11 +1,6 @@
-import { beforeEach, describe, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
-import { useRecipe } from '~/composables/recipe'
-import type { Recipe } from '~/types'
-import recipeData from '~/data/recipe.json'
-import { useRecipeStore } from '~/store/recipe'
-
-const recipe = ref<Recipe>(recipeData as Recipe)
+import { beforeEach, describe, expect, it } from 'vitest'
+import { useRecipeStore } from '../app/composables/store'
 
 describe('recipe interaction', () => {
   beforeEach(() => {
@@ -39,7 +34,6 @@ describe('recipe mode', () => {
 
   it('loose mode', () => {
     const rStore = useRecipeStore()
-    const { displayedRecipe } = useRecipe(recipe)
 
     rStore.reset()
     rStore.addStuff('土豆')
@@ -50,7 +44,7 @@ describe('recipe mode', () => {
     expect(rStore.selectedStuff).toStrictEqual(['土豆', '腊肠'])
     rStore.setMode('strict')
 
-    displayedRecipe.value.forEach((item) => {
+    rStore.displayedRecipe.forEach((item) => {
       expect(item.stuff.includes('土豆') || item.stuff.includes('腊肠')).toBe(true)
       expect(item.tools?.includes('电饭煲')).toBe(true)
     })
@@ -58,7 +52,6 @@ describe('recipe mode', () => {
 
   it('strict mode', () => {
     const rStore = useRecipeStore()
-    const { displayedRecipe } = useRecipe(recipe)
 
     rStore.reset()
     rStore.addStuff('土豆')
@@ -69,7 +62,7 @@ describe('recipe mode', () => {
     expect(rStore.selectedStuff).toStrictEqual(['土豆', '腊肠'])
     rStore.setMode('strict')
 
-    displayedRecipe.value.forEach((item) => {
+    rStore.displayedRecipe.forEach((item) => {
       expect(item.stuff.includes('土豆') && item.stuff.includes('腊肠')).toBe(true)
       expect(item.tools?.includes('电饭煲')).toBe(true)
     })
@@ -77,7 +70,6 @@ describe('recipe mode', () => {
 
   it('survival mode', () => {
     const rStore = useRecipeStore()
-    const { displayedRecipe } = useRecipe(recipe)
 
     rStore.reset()
     rStore.addStuff('土豆')
@@ -86,7 +78,7 @@ describe('recipe mode', () => {
     expect(rStore.selectedStuff).toStrictEqual(['土豆', '腊肠'])
     rStore.setMode('survival')
 
-    displayedRecipe.value.forEach((item) => {
+    rStore.displayedRecipe.forEach((item) => {
       const filtered = item.stuff.every(stuff => rStore.selectedStuff.includes(stuff))
       expect(filtered).toBe(true)
     })

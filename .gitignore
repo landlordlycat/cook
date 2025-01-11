@@ -1,14 +1,20 @@
 # auto generate
-src/data/recipe.json
+data/recipe.json
 
 .DS_Store
 .vite-ssg-dist
 .vite-ssg-temp
 *.local
-dist
-dist-ssr
-node_modules
-.idea/
-*.log
 
 esbuild-kit
+tsx-*
+
+# nuxt
+node_modules
+*.log
+dist
+.output
+.nuxt
+.env
+.idea/
+.vercel
