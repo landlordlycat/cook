@@ -5,10 +5,14 @@
 
 ## 版本
 
+[![Release](https://github.com/YunYouJun/cook/actions/workflows/release.yml/badge.svg)](https://github.com/YunYouJun/cook/actions/workflows/release.yml)
+
 ### 网页版本
 
-- 网站链接：[cook.yunyoujun.cn](https://cook.yunyoujun.cn)
-- 备用：[cook.yyj.moe](https://cook.yyj.moe)
+- 网站链接（Cloudflare）：[cook.yunyoujun.cn](https://cook.yunyoujun.cn)
+  - 国内加速（腾讯云）：[cook.yunle.fun](https://cook.yunle.fun)
+- 备用（Netlify）：[cook.yyj.moe](https://cook.yyj.moe)
+- 开发版（Vercel）：[cook.yunle.app](https://cook.yunle.app)
 
 ### 小程序版本
 
@@ -29,12 +33,11 @@
 
 - 相关链接
   - [居家菜谱投稿](https://docs.qq.com/form/page/DWk9GWW9oTmlXZU9V)
-  - [晒晒你的菜](https://docs.qq.com/sheet/DQk1vdkhFV0twQVNS?tab=dmeahc)
-  - [反馈建议](https://docs.qq.com/sheet/DQk1vdkhFV0twQVNS?tab=snaau2)
+  - [反馈建议分享-兔小巢](https://support.qq.com/products/507827)
 
-<!-- ### Features -->
+### Features
 
-<!-- 本项目支持 PWA，使用浏览器打开时，可将其添加到主屏幕以获得近原生 APP 的体验。 -->
+本项目支持 PWA，使用浏览器打开时，可将其添加到主屏幕以获得近原生 APP 的体验。
 
 ## 开发
 
@@ -71,8 +74,6 @@ docker stop cook
 感谢以下小伙伴为本项目提供的数据支持和 QA ！
 
 - [Runny](https://weibo.com/runny)
-- 山竹太凉
-- leo
 - 麒麟
 - 晴方啾
 - 课代表阿伟
